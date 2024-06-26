@@ -23,7 +23,7 @@ const ProductCard = ({ title, subtitle, price, discountPrice, className, ImageUr
   return (
       <div  className='w-full lg:w-[270px] relative sm:px-1 lg:mb-[60px] mb-8'>
           <div className='w-full h-[250px] bg-secondary rounded-[4px] flex justify-center items-center relative group '>
-              <h5 className={`${className}`}>{title}</h5>
+              <h5 className={`${className}`}>-{title}</h5>
 
               <div className='absolute top-3 right-3'>
               <div className='bg-white p-[5px] rounded-full'>
