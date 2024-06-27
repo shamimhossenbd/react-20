@@ -12,6 +12,7 @@ import { productQuantityUpdate, removeProductReducer } from '../Slices/productSl
 
 
 const Cart = () => {
+  let [menuShow, setMenuShow] = useState(true);
   
   let handleIncrement = (index ,qty) => {
     dispatch(productQuantityUpdate({id:index, qty,  actionName: 'increment'}));
@@ -30,23 +31,26 @@ const Cart = () => {
   return (
     <section>
           <Breadcrumb />
-          <Container>
-              <Flex className=" justify-between bg-white mt-10  rounded-xl">
-                  <div><h1 className=' font-poppins font-normal text-base  leading-6  my-6'>Product Image</h1></div>
+      <Container>
+        <div>
+
+              <Flex className=" justify-between bg-white mt-10  rounded-xl border">
+                  <div><h1 className=' font-poppins font-normal text-base  leading-6  my-6 ml-5'>Product Image</h1></div>
                   <div><h1 className=' font-poppins font-normal text-base  leading-6 px-10 my-6'>Product title</h1></div>
                   <div><h1 className=' font-poppins font-normal text-base  leading-6 px-10 my-6'>Price</h1></div>
                   <div><h1 className=' font-poppins font-normal text-base  leading-6 px-10 my-6'>Quantity</h1></div>
                   <div><h1 className=' font-poppins font-normal text-base  leading-6 px-10 my-6'>Subtotal</h1></div>
-        </Flex>
+           </Flex>
+        </div>
         {cartData.map((item,index) => (
           
-              <Flex className=" justify-between bg-white mt-10   items-center">
-            <div className='relative'><Image className="w-20 ml-10 my-6" src={item.thumbnail} /><RxCrossCircled onClick={() => handleDeleteCart(item.id)}   className='bg-thard rounded-full text-white text-center absolute top-5 left-8 text-xl cursor-pointer' /></div>
-            <div>{`${item.title.slice(0,15)} ...`}</div>
-            <div><h1 className=' font-poppins font-normal text-base  leading-6 px-10 my-6 '>${item.price }</h1></div>
+              <Flex className=" lg:justify-between bg-white mt-10  flex-col lg:flex-row    items-center border rounded-xl">
+            <div className='relative '><Image className="lg:w-20 w-full ml-10 my-6 relative" src={item.thumbnail} /><RxCrossCircled onClick={() => handleDeleteCart(item.id)}   className='bg-thard rounded-full text-white text-center absolute lg:top-5 lg:left-8 left-20 top-20 lg:text-xl text-2xl cursor-pointer  ' /></div>
+            <div className='border lg:border-none px-32  py-4 lg:p-[0px]'>{`${item.title.slice(0,15)} ...`}</div>
+            <div><h1 className=' px-32 lg:p-[0px] font-poppins font-normal text-base  rounded-lg leading-6  my-6  border lg:border-none py-4'>${item.price }</h1></div>
           
-          <div class=" w-[150px] border flex p-4 rounded " >
-             <input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 text-center font-bold" value={item.qty}/>
+          <div class=" w-[150px] border flex p-4 rounded   items-center lg:mr-[-120px]" >
+             <input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 text-center font-bold " value={item.qty}/>
                                    <Flex className="flex-col">
                                             
                                                 <button class="btn btn-sm btn-dark btn-minus p-2 pt-1 pb-1 " >
@@ -62,7 +66,7 @@ const Cart = () => {
                                       </Flex>
                       </div>
             
-                  <div><h1 className=' font-poppins font-normal text-base  leading-6 px-10 my-6'>{`$ ${Math.floor(item.price - (item.discountPercentage / 100) * item.price)} `}</h1></div>
+                  <div><button className='font-poppins rounded-lg font-normal text-base  leading-6 py-4 my-6  sm:w-full bg-white border lg:border-none px-32 lg:pr-[80px]'>{`$ ${Math.floor(item.price - (item.discountPercentage / 100) * item.price)} `}</button></div>
               </Flex>
         ))}
               <Flex className=" justify-between bg-white mt-10   items-center">
@@ -71,13 +75,13 @@ const Cart = () => {
                   <div><button className='rounded  cursor-pointer font-poppins font-normal text-base  leading-6  my-6 py-4 px-12 border border-slate-800'>Update Cart</button></div>
                 
               </Flex>
-              <Flex className=" justify-between bg-white mt-10  ">
+              <Flex className=" lg:justify-between bg-white mt-10 lg:flex-row  flex-col">
                  
           <div className='rounded'>
-            <input className='rounded font-poppins font-normal text-base  leading-6  mb-6 py-4 pl-6 pr-16 border border-slate-800' type="text" placeholder='Coupon Code' />
+            <input className='rounded font-poppins font-normal text-base text-center  lg:leading-6 min-w-full   lg:mb-6 lg:py-4 py-4 lg:pl-6  lg:pr-16 border border-slate-800 mb-10' type="text" placeholder='Coupon Code' />
           </div>
           <div className='rounded'>
-            <button className='cursor-pointer font-poppins font-normal text-base  leading-6  mb-6 py-4 px-12 border border-slate-800 hover:bg-thard rounded'>Apply Coupon</button>
+            <button className='cursor-pointer font-poppins font-normal text-base sm:w-full  leading-6  mb-6 py-4 px-12 border border-slate-800 hover:bg-thard rounded min-w-full'>Apply Coupon</button>
           </div>
           
             <div className='border border-blue-950 p-6 mb-[140px] rounded'>

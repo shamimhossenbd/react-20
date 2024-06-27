@@ -22,11 +22,11 @@ const Navbar = () => {
 
   }
   return (
-    <nav className='mt-10 border-b pb-4 relative z-50'>
+    <nav className='mt-10 border-b pb-4   relative z-50'>
       <Container>
-        <Flex className="justify-between items-center">
+        <Flex className="justify-between items-center ">
            <Image src={logo} alt="logo" />
-       <div className={`${menuShow ?  "block" : "hidden" } w-full md:flex md:w-[73%]  justify-between items-center absolute md:static top-10 bg-black md:bg-transparent left-0 p-5 md:p-0`}>
+       <div className={`${menuShow ?  "block" : "hidden" } w-full  md:flex md:w-[73%]  justify-between items-center absolute md:static top-10 bg-black md:bg-transparent  p-5 md:p-0`}>
             <List>
               <Link to="/">
                 <ListItem className="text-sm lg:text-base font-Poppins font-normal  text-white md:text-black after:content-[''] after:w-0 block mt-3 md-0 md:inline-block mr-[48px] after:h-[1px] after:bg-black after:absolute after:bottom-0 after:left-0 relative md:hover:after:w-full  after:duration-500">Home</ListItem></Link>

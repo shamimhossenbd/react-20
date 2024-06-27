@@ -44,8 +44,8 @@ const ProductCard = ({ title, subtitle, price, discountPrice, className, ImageUr
           <h2 className=' font-poppins font-medium text-base text-black leading-6 mt-4'>{ subtitle}</h2>
           <Flex className="gap-4">
               
-              <h3 className=' font-poppins font-medium text-base text-thard leading-6 mt-2'>${ price}</h3>
-              <del className=' justify-center items-center font-poppins font-medium text-base text-[#808080] leading-6 mt-2'>${ discountPrice}</del>
+              <h3 className=' font-poppins font-medium text-base text-thard leading-6 mt-2'>${price}</h3>
+              <del className=' justify-center items-center font-poppins font-medium text-base text-[#808080] leading-6 mt-2'>{ discountPrice}</del>
           </Flex>
           <List>
               <ListItem className="flex gap-1 my-2">

@@ -113,7 +113,7 @@ function SamplePrevArrow(props) {
          {allProducts &&
                 allProducts.map((item) => (
                 <div>
-                     <ProductCard className="text-sm font-poppins text-white font-normal bg-thard py-1 px-3 rounded-[4px] absolute top-3 left-3" ratinge={item.stock} id={item.id} title={`${Math.floor(item.discountPercentage)}%`} subtitle={item.title} price={` ${Math.floor(item.price - (item.discountPercentage / 100) * item.price)} `} discountPrice={item.price} rating={item.rating} ImageUrl={item.thumbnail}/>
+                     <ProductCard className="text-sm font-poppins text-white font-normal bg-thard py-1 px-3 rounded-[4px] absolute top-3 left-3" ratinge={item.stock} id={item.id} title={`${Math.floor(item.discountPercentage)}%`} subtitle={item.title} price={` ${Math.floor(item.price - (item.discountPercentage / 100) * item.price)} `} discountPrice={`$${item.price}`} rating={item.rating} ImageUrl={item.thumbnail}/>
                 </div>
                 ))}
        </Slider>
