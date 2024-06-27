@@ -11,13 +11,17 @@ import { FaArrowLeft } from "react-icons/fa";
 import { FaArrowRight } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import { productReducer } from '../Slices/productSlice'
 
 
 const Flashsales = () => {
+  let dispatch = useDispatch();
    let [allProducts, setAllProducts] = useState([]);
    async function getAllProducts() {
     let data = await axios.get("https://dummyjson.com/products");
      setAllProducts(data.data.products);
+     dispatch(productReducer(data.data.products));
     };
         // allProducts.map((Item) => {
         // console.log(Item.category);
@@ -113,7 +117,7 @@ function SamplePrevArrow(props) {
          {allProducts &&
                 allProducts.map((item) => (
                 <div>
-                     <ProductCard className="text-sm font-poppins text-white font-normal bg-thard py-1 px-3 rounded-[4px] absolute top-3 left-3" ratinge={item.stock} id={item.id} title={`${Math.floor(item.discountPercentage)}%`} subtitle={item.title} price={` ${Math.floor(item.price - (item.discountPercentage / 100) * item.price)} `} discountPrice={`$${item.price}`} rating={item.rating} ImageUrl={item.thumbnail}/>
+                     <ProductCard className="text-sm font-poppins text-white font-normal bg-thard py-1 px-3 rounded-[4px] absolute top-3 left-3" ratinge={item.stock} id={item.id} title={`${Math.floor(item.discountPercentage)}%`} subtitle={item.title} price={` ${Math.floor(item.price - (item.discountPercentage / 100) * item.price)} `} discountPrice={`$${item.price}`} rating={item.rating} ImageUrl={item.thumbnail} productDit={item}/>
                 </div>
                 ))}
        </Slider>
