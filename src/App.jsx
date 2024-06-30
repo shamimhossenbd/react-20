@@ -16,6 +16,8 @@ import Shop from './pages/Shop';
 import Product from './pages/Product';
 import Cart from './pages/Cart';
 import ErrorPage from './pages/ErrorPage';
+import CheckOut from './pages/CheckOut';
+import MyAccount from './pages/MyAccount';
 
 
 
@@ -31,6 +33,8 @@ const router = createBrowserRouter(
     <Route path="/shop"  element={<Shop/>}></Route>
     <Route path="/product/:id"  element={<Product/>}></Route>
       <Route path="/cart" element={<Cart />}></Route>
+      <Route path="/CheckOut" element={<CheckOut/>}></Route>
+      <Route path="/My_account" element={<MyAccount/>}></Route>
       <Route path="*" element={<ErrorPage/>} />
   </Route>)
 );

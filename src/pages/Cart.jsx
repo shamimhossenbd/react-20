@@ -9,6 +9,7 @@ import { IoIosArrowUp } from "react-icons/io";
 import { useDispatch, useSelector } from 'react-redux'
 import { RxCrossCircled } from "react-icons/rx";
 import { productQuantityUpdate, removeProductReducer } from '../Slices/productSlice'
+import { Link } from 'react-router-dom'
 
 
 const Cart = () => {
@@ -29,7 +30,7 @@ const Cart = () => {
    
     dispatch(removeProductReducer(id))
   }
-  console.log(totalPrice);
+  
   
   return (
     <section>
@@ -79,7 +80,7 @@ const Cart = () => {
                 
         </Flex>
         
-              <Flex className=" lg:justify-between bg-white mt-10 lg:flex-row  flex-col">
+        <Flex className=" lg:justify-between bg-white mt-10 lg:flex-row  flex-col">
                  
           <div className='rounded'>
             <input className='rounded font-poppins font-normal text-base text-center  lg:leading-6 min-w-full   lg:mb-6 lg:py-4 py-4 lg:pl-6  lg:pr-16 border border-slate-800 mb-10' type="text" placeholder='Coupon Code' />
@@ -109,7 +110,8 @@ const Cart = () => {
                </Flex>
             </div>
             <div className='flex justify-center items-center mb-8 bt-4'>
-              <button type="button" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-12 py-4  dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900 text-center">Procees to checkout</button>
+              <Link to="/CheckOut">
+              <button type="button" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-12 py-4  dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900 text-center">Procees to checkout</button></Link>
             </div>
              </div>
                 

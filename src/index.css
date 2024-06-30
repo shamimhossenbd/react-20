@@ -13,3 +13,11 @@
     margin: 0px !important;
 }
 }
+
+nav a.active {
+   
+   color: #db4444;
+   
+
+   
+}
