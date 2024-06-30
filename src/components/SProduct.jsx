@@ -115,7 +115,7 @@ const SProduct = () => {
             <Title subtitle="This Month" title="Best Selling Products" />
             <div className='text-canter mt-5'>
 
-                  <Link className='  inline-block  font-poppins font-medium text-xs md:text-base leading-6  bg-thard rounded-[4px]  text-white lg:items-center lg:justify-center px-5 py-3 lg:py-4 lg:px-12' href="#">View All</Link>
+                  <Link to="/shop" className='  inline-block  font-poppins font-medium text-xs md:text-base leading-6  bg-thard rounded-[4px]  text-white lg:items-center lg:justify-center px-5 py-3 lg:py-4 lg:px-12' href="#">View All</Link>
               </div>
                   </div>
                  

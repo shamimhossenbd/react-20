@@ -5,10 +5,15 @@ import Image from '../components/Image'
 import sideImage from '../assets/Side Image.png'
 import { FcGoogle } from "react-icons/fc";
 import { Link , useNavigate } from 'react-router-dom'
-import { getAuth, createUserWithEmailAndPassword ,sendEmailVerification ,updateProfile  } from "firebase/auth";
-
+import { getAuth, createUserWithEmailAndPassword ,sendEmailVerification ,updateProfile ,GoogleAuthProvider,signInWithPopup  } from "firebase/auth";
+import { ToastContainer, toast } from 'react-toastify';
+ import 'react-toastify/dist/ReactToastify.css';
+import { useDispatch } from 'react-redux'
+import { userLoginInfo } from '../Slices/userSlice'
 
 const Create = () => {
+  let dispatch = useDispatch();
+  const provider = new GoogleAuthProvider();
   let navigate = useNavigate();
   const auth = getAuth();
   let [name, setName] = useState('');
@@ -16,6 +21,22 @@ const Create = () => {
   let [password, setPassword] = useState('');
   let [error, setError] = useState('');
   
+
+  let handleGoogle = () => {
+    signInWithPopup(auth, provider)
+  .then((result) => {
+    
+    
+    const user = result.user;
+    localStorage.setItem('user', JSON.stringify(user));
+   dispatch(userLoginInfo(user));
+     navigate('/login');
+  }).catch((error) => {
+    // Handle Errors here.
+    const errorCode = error.code;
+   setError(errorCode);
+  });
+  };
 
   let handleCreate = () => {
      if(email === '' || password === ''){
@@ -55,7 +76,7 @@ const Create = () => {
             <button type="submit" onClick={handleCreate} class="text-white bg-red-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300  rounded-lg font-normal  py-[16px] mt-10 text-center text-base w-full">Create Account</button>
             
                        <div className="relative">
-                       <button type="submit"  class=" border  focus:ring-4 focus:outline-none focus:ring-blue-300  font-normal rounded-lg   py-[16px] mt-4 text-center text-base w-full ">Sign up with Google</button>
+                       <button type="submit" onClick={handleGoogle}  class=" border  focus:ring-4 focus:outline-none focus:ring-blue-300  font-normal rounded-lg   py-[16px] mt-4 text-center text-base w-full ">Sign up with Google</button>
                        <FcGoogle className=' absolute text-xl lg:text-2xl lg:top-8 lg:left-20 top-[34px] sm:top-[34px] sm:left-[248px]    left-[73px] md:top-[34px]  md:left-[247px]'  />
                        </div>
                        <div className="relative lg:mb-[125px] mb-5 ">

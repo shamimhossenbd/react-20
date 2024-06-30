@@ -9,6 +9,7 @@ import { MdOutlineMenu } from "react-icons/md";
 import logo from '../assets/Logo.png'
 
 import List from './List';
+import { CiUser } from "react-icons/ci";
 
 import Flex from './Flex';
 import { Link } from 'react-router-dom';
@@ -16,26 +17,29 @@ import { useSelector } from 'react-redux';
 
 const Navbar = () => {
    let cartData = useSelector((state) => state.allProduct.cart)
+  let userData = useSelector((state) => state.userLoginIn.value);
+  console.log(userData);
   let [menuShow, setMenuShow] = useState(false);
   let handleMenu = () => {
     setMenuShow(!menuShow)
 
   }
+
   return (
     <nav className='mt-10 border-b pb-4   relative z-50'>
       <Container>
         <Flex className="justify-between items-center ">
            <Image src={logo} alt="logo" />
-       <div className={`${menuShow ?  "block" : "hidden" } w-full  md:flex md:w-[73%]  justify-between items-center absolute md:static top-10 bg-black md:bg-transparent  p-5 md:p-0`}>
+       <div className={`${menuShow ?  "block" : "hidden" } w-full  md:flex md:w-[80%]  justify-between items-center absolute md:static top-10 bg-black md:bg-transparent  p-5 md:p-0`}>
             <List>
               <Link to="/">
-                <ListItem className="text-sm lg:text-base font-Poppins font-normal  text-white md:text-black after:content-[''] after:w-0 block mt-3 md-0 md:inline-block mr-[48px] after:h-[1px] after:bg-black after:absolute after:bottom-0 after:left-0 relative md:hover:after:w-full  after:duration-500">Home</ListItem></Link>
+                <ListItem className="text-sm lg:text-base font-Poppins font-normal  text-white md:text-black after:content-[''] after:w-0 block mt-3 md-0 md:inline-block mr-[38px] after:h-[1px] after:bg-black after:absolute after:bottom-0 after:left-0 relative md:hover:after:w-full  after:duration-500">Home</ListItem></Link>
               <Link to="/contact">
-                <ListItem className="text-sm lg:text-base font-Poppins font-normal text-white md:text-black after:content-[''] after:w-0 block mt-3 md-0 md:inline-block mr-[48px] after:h-[1px] after:bg-black after:absolute after:bottom-0 after:left-0 relative md:hover:after:w-full after:duration-500">contact</ListItem></Link>
+                <ListItem className="text-sm lg:text-base font-Poppins font-normal text-white md:text-black after:content-[''] after:w-0 block mt-3 md-0 md:inline-block mr-[38px] after:h-[1px] after:bg-black after:absolute after:bottom-0 after:left-0 relative md:hover:after:w-full after:duration-500">contact</ListItem></Link>
               <Link to="/about">
-                <ListItem className="text-sm lg:text-base font-Poppins font-normal text-white md:text-black after:content-[''] after:w-0 block mt-3 md-0 md:inline-block mr-[48px] after:h-[1px] after:bg-black after:absolute after:bottom-0 after:left-0 relative md:hover:after:w-full after:duration-500">About</ListItem></Link>
-              <Link to="/create">
-        <ListItem className="text-sm lg:text-base font-Poppins font-normal text-white  md:text-black after:content-[''] after:w-0 block mt-3 md-0 md:inline-block mr-[48px] after:h-[1px] after:bg-black after:absolute after:bottom-0 after:left-0 relative md:hover:after:w-full after:duration-500    left-0  ">Sign Up</ListItem></Link>
+                <ListItem className="text-sm lg:text-base font-Poppins font-normal text-white md:text-black after:content-[''] after:w-0 block mt-3 md-0 md:inline-block mr-[38px] after:h-[1px] after:bg-black after:absolute after:bottom-0 after:left-0 relative md:hover:after:w-full after:duration-500">About</ListItem></Link>
+         <Link to="/create">
+        <ListItem className="text-sm lg:text-base font-Poppins font-normal text-white  md:text-black after:content-[''] after:w-0 block mt-3 md-0 md:inline-block mr-[38px] after:h-[1px] after:bg-black after:absolute after:bottom-0 after:left-0 relative md:hover:after:w-full after:duration-500    left-0  ">Sign Up</ListItem></Link>
         </List> 
         <Flex className="items-center gap-6">
           <div className='relative w-[243px] mt-5 md:mt-0'>
@@ -43,15 +47,23 @@ const Navbar = () => {
           <input className='bg-secondary w-full py-3 px-4 placeholder:font-Poppins text-xs leading-[18px] placeholder:text-black' type="text" placeholder='What are you looking for?' />
               <CiSearch className='absolute top-3 right-4 text-base' />
           </div>
-          <Flex className="gap-4 items-center">
+              <Flex className="gap-4 items-center">
+                
                 <CiHeart className='text-white md:text-black text-2xl' />
                 <Link className=' relative' to="/cart"> <IoCartOutline className='text-white md:text-black text-2xl' />
                   <p className=' absolute top-[-30px] w-[30px] h-[30px] text-center text-white bg-thard rounded-full'>{cartData.length }</p>
                 </Link>
+                
+                <CiUser  className='text-white md:text-black text-3xl' />
+                <h4 className='text-sm lg:text-base font-Poppins font-normal text-white  md:text-black'>{userData ? (userData.displayName) : 
+                  ''
+                    }</h4>
+                
             
          </Flex>
         </Flex>
           </div>
+          
           <MdOutlineMenu onClick={handleMenu}  className='md:hidden text-2xl absolute top-0 right-2'/>
         </Flex>
       </Container>

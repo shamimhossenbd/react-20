@@ -12,7 +12,7 @@ import { productQuantityUpdate, removeProductReducer } from '../Slices/productSl
 
 
 const Cart = () => {
-  let [menuShow, setMenuShow] = useState(true);
+
   
   let handleIncrement = (index ,qty) => {
     dispatch(productQuantityUpdate({id:index, qty,  actionName: 'increment'}));
@@ -23,11 +23,14 @@ const Cart = () => {
   };
   let dispatch = useDispatch();
   let cartData = useSelector((state) => state.allProduct.cart);
+  let totalPrice = cartData.reduce((acc, item) => acc + Math.floor(item.price - (item.discountPercentage / 100)* item.price) * item.qty, 0);
+  
   let handleDeleteCart = (id)=>{
    
     dispatch(removeProductReducer(id))
   }
- 
+  console.log(totalPrice);
+  
   return (
     <section>
           <Breadcrumb />
@@ -47,7 +50,7 @@ const Cart = () => {
               <Flex className=" lg:justify-between bg-white mt-10  flex-col lg:flex-row    items-center border rounded-xl">
             <div className='relative '><Image className="lg:w-20 w-full ml-10 my-6 relative" src={item.thumbnail} /><RxCrossCircled onClick={() => handleDeleteCart(item.id)}   className='bg-thard rounded-full text-white text-center absolute lg:top-5 lg:left-8 left-20 top-20 lg:text-xl text-2xl cursor-pointer  ' /></div>
             <div className='border lg:border-none px-32  py-4 lg:p-[0px]'>{`${item.title.slice(0,15)} ...`}</div>
-            <div><h1 className=' px-32 lg:p-[0px] font-poppins font-normal text-base  rounded-lg leading-6  my-6  border lg:border-none py-4'>${item.price }</h1></div>
+            <div><h1 className=' px-32 lg:p-[0px] font-poppins font-normal text-base  rounded-lg leading-6  my-6  border lg:border-none py-4'>{`$ ${Math.floor(item.price - (item.discountPercentage / 100) * item.price)} `}</h1></div>
           
           <div class=" w-[150px] border flex p-4 rounded   items-center lg:mr-[-120px]" >
              <input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 text-center font-bold " value={item.qty}/>
@@ -66,7 +69,7 @@ const Cart = () => {
                                       </Flex>
                       </div>
             
-                  <div><button className='font-poppins rounded-lg font-normal text-base  leading-6 py-4 my-6  sm:w-full bg-white border lg:border-none px-32 lg:pr-[80px]'>{`$ ${Math.floor(item.price - (item.discountPercentage / 100) * item.price)} `}</button></div>
+              <div><button className='font-poppins rounded-lg font-normal text-base  leading-6 py-4 my-6  sm:w-full bg-white border lg:border-none px-32 lg:pr-[80px]'>{`$ ${(item.qty) *(Math.floor(item.price - (item.discountPercentage / 100) * item.price))} `}</button></div>
               </Flex>
         ))}
               <Flex className=" justify-between bg-white mt-10   items-center">
@@ -74,7 +77,8 @@ const Cart = () => {
                   <div><button className='rounded   cursor-pointer font-poppins font-normal text-base  leading-6  my-6 py-4 px-12 border border-slate-800'>Return To Shop</button></div>
                   <div><button className='rounded  cursor-pointer font-poppins font-normal text-base  leading-6  my-6 py-4 px-12 border border-slate-800'>Update Cart</button></div>
                 
-              </Flex>
+        </Flex>
+        
               <Flex className=" lg:justify-between bg-white mt-10 lg:flex-row  flex-col">
                  
           <div className='rounded'>
@@ -89,7 +93,7 @@ const Cart = () => {
             <div className='border-b border-b-gray-400 '>
               <Flex className="justify-between gap-[307px] mt-6  mb-4 ">
               <h1>Subtotal:</h1>
-              <h1>$1750</h1>
+                <h1>${totalPrice }</h1>
                </Flex>
             </div>
             <div className='border-b border-b-gray-400 '>
@@ -101,7 +105,7 @@ const Cart = () => {
             <div>
               <Flex className="justify-between gap-[307px] mt-6  mb-4 ">
               <h1>Total:</h1>
-              <h1>$1750</h1>
+                <h1>${totalPrice}</h1>
                </Flex>
             </div>
             <div className='flex justify-center items-center mb-8 bt-4'>

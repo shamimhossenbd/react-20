@@ -4,8 +4,13 @@ import Flex from '../components/Flex'
 import Image from '../components/Image'
 import sideImage from '../assets/Side Image.png'
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { userLoginInfo } from '../Slices/userSlice'
 
 const Login = () => {
+  let dispatch = useDispatch();
+  let navigate = useNavigate();
   const auth = getAuth();
   let [email, setEmail] = useState('');
   let [password, setPassword] = useState('');
@@ -15,11 +20,13 @@ const Login = () => {
       setError('Please fill all fields');
     }
     signInWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    
-    const user = userCredential.user;
-    
-  })
+        .then((userCredential) => {
+          
+          const user = userCredential.user;
+          dispatch(userLoginInfo(user));
+          localStorage.setItem('user', JSON.stringify(user));
+          navigate('/');
+        })
   .catch((error) => {
     const errorCode = error.code;
     setError(errorCode);

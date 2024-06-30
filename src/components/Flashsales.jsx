@@ -123,7 +123,7 @@ function SamplePrevArrow(props) {
        </Slider>
          <div className='  text-center   mb-10 lg:mb-[60px] '>
           
-             <Link className=' rounded-[4px] inline-block font-poppins font-medium text-base bg-thard text-secondary lg:px-12 px-6 lg:py-4 py-2'>View All Products</Link>
+             <Link to="/shop" className=' rounded-[4px] inline-block font-poppins font-medium text-base bg-thard text-secondary lg:px-12 px-6 lg:py-4 py-2'>View All Products</Link>
         </div>
         </div>
        

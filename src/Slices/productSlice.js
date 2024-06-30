@@ -41,7 +41,7 @@ export const productSlice = createSlice({
         state.cart[action.payload.id].qty++
         localStorage.setItem("cart", JSON.stringify([...state.cart]));
       } else if(state.cart[action.payload.id].qty === -0) {
-        console.log(notification.message);
+        console.log('');
       } else {
          state.cart[action.payload.id].qty-- 
         localStorage.setItem("cart", JSON.stringify([...state.cart]));

@@ -9,8 +9,8 @@ import Explore from '../components/Explore';
 import Arrive from '../components/Arrive';
 import CustomerService from '../components/CustomerService';
 
-
 const Home = () => {
+ 
   return (
     <>
       <Banner />

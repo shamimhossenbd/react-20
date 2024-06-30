@@ -12,7 +12,6 @@ const Contact = () => {
         <Breadcrumb/>
       <Container>
         
-            
               <section>
                   <Flex className="lg:justify-between mt-20 lg:mb-[140px] mb-3 lg:flex-row  flex-col gap-3" >
                       <div className='  '>

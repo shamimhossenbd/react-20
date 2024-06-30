@@ -15,12 +15,14 @@ import About from './pages/About';
 import Shop from './pages/Shop';
 import Product from './pages/Product';
 import Cart from './pages/Cart';
+import ErrorPage from './pages/ErrorPage';
 
 
 
 
 const router = createBrowserRouter(
-  createRoutesFromElements(<Route path="/" element={<RootLayout />}>
+  createRoutesFromElements(
+    <Route path="/" element={<RootLayout />}>
     <Route index element={<Home/>}></Route>
     <Route path="/login"  element={<Login/>}></Route>
     <Route path="/create"  element={<Create/>}></Route>
@@ -28,7 +30,8 @@ const router = createBrowserRouter(
     <Route path="/about"  element={<About/>}></Route>
     <Route path="/shop"  element={<Shop/>}></Route>
     <Route path="/product/:id"  element={<Product/>}></Route>
-    <Route path="/cart"  element={<Cart/>}></Route>
+      <Route path="/cart" element={<Cart />}></Route>
+      <Route path="*" element={<ErrorPage/>} />
   </Route>)
 );
 
