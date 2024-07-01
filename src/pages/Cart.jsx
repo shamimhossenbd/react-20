@@ -38,12 +38,12 @@ const Cart = () => {
       <Container>
         <div>
 
-              <Flex className=" justify-between bg-white mt-10  rounded-xl border">
-                  <div><h1 className=' font-poppins font-normal text-base  leading-6  my-6 ml-5'>Product Image</h1></div>
-                  <div><h1 className=' font-poppins font-normal text-base  leading-6 px-10 my-6'>Product title</h1></div>
-                  <div><h1 className=' font-poppins font-normal text-base  leading-6 px-10 my-6'>Price</h1></div>
-                  <div><h1 className=' font-poppins font-normal text-base  leading-6 px-10 my-6'>Quantity</h1></div>
-                  <div><h1 className=' font-poppins font-normal text-base  leading-6 px-10 my-6'>Subtotal</h1></div>
+              <Flex className=" justify-between lg:bg-white mt-10  rounded-xl lg:border lg:text-black text-white">
+                  <div><p className=' font-poppins font-normal lg:text-base  leading-6  lg:my-6 ml-5'>Product Image</p></div>
+                  <div><p className=' font-poppins font-normal lg:text-base  leading-6 lg:px-10 my-6'>Product title</p></div>
+                  <div><p className=' font-poppins font-normal lg:text-base  leading-6 lg:px-10 my-6'>Price</p></div>
+                  <div><p className=' font-poppins font-normal lg:text-base  leading-6 lg:px-10 my-6'>Quantity</p></div>
+                  <div><p className=' font-poppins font-normal lg:text-base  leading-6 lg:px-10 my-6'>Subtotal</p></div>
            </Flex>
         </div>
         {cartData.map((item,index) => (
