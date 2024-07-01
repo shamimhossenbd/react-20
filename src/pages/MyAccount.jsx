@@ -10,10 +10,10 @@ const MyAccount = () => {
           <Container>
               <h5 className=' font-poppins font-normal text-sm  leading-5 text-right mb-20'>Welcome! <span className='text-thard'>Md Rimel</span> </h5>
 
-              <Flex>
-                  <div className='w-[30%] '> 
+              <Flex className=" lg:justify-between  lg:flex-row flex-col">
+                  <div className='lg:w-[30%] w-full lg:pl-0 pl-20 '> 
                       <h2 className=' font-poppins  font-medium text-base leading-6'>Manage My Account</h2>
-                      <h3 className='font-poppins mt-4 ml-[35px]  font-medium text-base leading-6 text-thard'>My Profile</h3>
+                      <h3 className='font-poppins mt-4 ml-[35px]   font-medium text-base leading-6 text-thard'>My Profile</h3>
                       <h3 className='font-poppins mt-4 ml-[35px]  font-medium text-base leading-6 text-[#b8b8b8]'>Address Book</h3>
                       <h3 className='font-poppins mt-4 ml-[35px] mb-6  font-medium text-base leading-6 text-[#b8b8b8]'>My Payment Options</h3>
                       <h2 className=' font-poppins  font-medium text-base leading-6'>My Orders</h2>
@@ -22,40 +22,40 @@ const MyAccount = () => {
                       <h3 className='font-poppins mt-4 ml-[35px] mb-6  font-medium text-base leading-6 text-[#b8b8b8]'>My Cancellations</h3>
                       <h2 className=' font-poppins  font-medium text-base leading-6'>My WishList</h2>
                   </div>
-                  <div className='w-[70%] rounded drop-shadow-md  bg-white p-20 mb-32'>
+                  <div className='lg:w-[70%] rounded drop-shadow-md  bg-white p-20 mb-32'>
                       <form>
                           <h1 className='font-poppins  font-medium text-xl leading-7 mb-4 text-thard'>Edit Your Profile</h1>
                           <div className="grid gap-6 mb-6 md:grid-cols-2">
                               
           <div>
             <label htmlFor="first_name" className="block mb-2 text-base font-medium text-gray-900 dark:text-white">First Name</label>
-            <input type="text" id="first_name" className="bg-[#F5F5F5] h-12  border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Md" required />
+            <input type="text" id="first_name" className="bg-[#F5F5F5]   border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 h-14 placeholder:text-base font-poppins leading-6 font-normal " placeholder="Md" required />
           </div>
           <div>
             <label htmlFor="last_name" className="block mb-2 text-base font-medium text-gray-900 dark:text-white">Last Name</label>
-            <input type="text" id="last_name" className="bg-[#F5F5F5] h-12  border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Rimel" required />
+            <input type="text" id="last_name" className="bg-[#F5F5F5] h-14  border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 placeholder:text-base font-poppins leading-6 font-normal" placeholder="Rimel" required />
           </div>
         
           <div>
             <label htmlFor="website" className="block mb-2 text-base font-medium text-gray-900 dark:text-white">Email</label>
-            <input type="url" id="website" className="bg-[#F5F5F5] h-12 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="rimel1111@gmail.com" required />
+            <input type="url" id="website" className="bg-[#F5F5F5] h-14 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 placeholder:text-base font-poppins leading-6 font-normal" placeholder="rimel1111@gmail.com" required />
           </div>
           <div>
             <label htmlFor="visitors" className="block mb-2 text-base font-medium text-gray-900 dark:text-white">Address</label>
-            <input type="number" id="visitors" className="bg-[#F5F5F5] h-12  border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Kingston, 5236, United State" required />
+            <input type="number" id="visitors" className="bg-[#F5F5F5] h-14  border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 placeholder:text-base font-poppins leading-6 font-normal" placeholder="Kingston, 5236, United State" required />
           </div>
         </div>
         <div className="mb-6">
           <label htmlFor="email" className="block mb-2 text-base font-medium text-gray-900 dark:text-white">Password Changes</label>
-          <input type="email" id="email" className="bg-[#F5F5F5] h-12 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Current Passwod" required />
+          <input type="email" id="email" className="bg-[#F5F5F5] h-14 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 placeholder:text-base font-poppins leading-6 font-normal" placeholder="Current Passwod" required />
         </div> 
         <div className="mb-6">
           
-          <input type="password" id="password" className="bg-[#F5F5F5] h-12 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="New Passwod" required />
+          <input type="password" id="password" className="bg-[#F5F5F5] h-14 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 placeholder:text-base font-poppins leading-6 font-normal" placeholder="New Passwod" required />
         </div> 
         <div className="mb-6">
           
-          <input type="password" id="confirm_password" className="bg-[#F5F5F5] h-12 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Confirm New Passwod" required />
+          <input type="password" id="confirm_password" className="bg-[#F5F5F5] h-14 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 placeholder:text-base font-poppins leading-6 font-normal dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Confirm New Passwod" required />
         </div> 
        <div className='flex justify-end'>
                               
