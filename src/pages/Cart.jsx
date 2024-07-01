@@ -48,7 +48,7 @@ const Cart = () => {
         </div>
         {cartData.map((item,index) => (
           
-              <Flex className=" lg:justify-between bg-white mt-10  flex-col lg:flex-row    items-center border rounded-xl">
+              <Flex className=" lg:justify-between bg-white mt-10  flex-col lg:flex-row sm:display-none   items-center border rounded-xl">
             <div className='relative '><Image className="lg:w-20 w-full ml-10 my-6 relative" src={item.thumbnail} /><RxCrossCircled onClick={() => handleDeleteCart(item.id)}   className='bg-thard rounded-full text-white text-center absolute lg:top-5 lg:left-8 left-20 top-20 lg:text-xl text-2xl cursor-pointer  ' /></div>
             <div className='border lg:border-none px-32  py-4 lg:p-[0px]'>{`${item.title.slice(0,15)} ...`}</div>
             <div><h1 className=' px-32 lg:p-[0px] font-poppins font-normal text-base  rounded-lg leading-6  my-6  border lg:border-none py-4'>{`$ ${Math.floor(item.price - (item.discountPercentage / 100) * item.price)} `}</h1></div>
@@ -92,26 +92,26 @@ const Cart = () => {
             <div className='border border-blue-950 p-6 mb-[140px] rounded'>
             <h1 className=' font-poppins  font-medium text-xl leading-6 text-black'> Cart Total</h1>
             <div className='border-b border-b-gray-400 '>
-              <Flex className="justify-between gap-[307px] mt-6  mb-4 ">
+              <Flex className="justify-between lg:gap-[307px] mt-6  mb-4 ">
               <h1>Subtotal:</h1>
                 <h1>${totalPrice }</h1>
                </Flex>
             </div>
             <div className='border-b border-b-gray-400 '>
-              <Flex className="justify-between gap-[307px] mt-6  mb-4 ">
+              <Flex className="justify-between lg:gap-[307px] mt-6  mb-4 ">
               <h1>Shipping:</h1>
               <h1>Free</h1>
                </Flex>
             </div>
             <div>
-              <Flex className="justify-between gap-[307px] mt-6  mb-4 ">
+              <Flex className="justify-between lg:gap-[307px] mt-6  mb-4 ">
               <h1>Total:</h1>
                 <h1>${totalPrice}</h1>
                </Flex>
             </div>
             <div className='flex justify-center items-center mb-8 bt-4'>
               <Link to="/CheckOut">
-              <button type="button" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-12 py-4  dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900 text-center">Procees to checkout</button></Link>
+              <button type="button" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm lg:px-12 px-3 py-4  dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900 text-center">Procees to checkout</button></Link>
             </div>
              </div>
                 

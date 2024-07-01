@@ -54,19 +54,19 @@ const CheckOut = () => {
       <div className='border lg:mt-8  p-6 mb-7 rounded'>
             
             <div className='border-b border-b-gray-400 '>
-              <Flex className="justify-between gap-[307px] mt-6  mb-4 ">
+              <Flex className="justify-between lg:gap-[307px] mt-6  mb-4 ">
               <h1>Subtotal:</h1>
                 <h1>${totalPrice }</h1>
                </Flex>
             </div>
             <div className='border-b border-b-gray-400 '>
-              <Flex className="justify-between gap-[307px] mt-6  mb-4 ">
+              <Flex className="justify-between lg:gap-[307px] mt-6  mb-4 ">
               <h1>Shipping:</h1>
               <h1>Free</h1>
                </Flex>
             </div>
             <div>
-              <Flex className="justify-between gap-[307px] mt-6  mb-8 ">
+              <Flex className="justify-between lg:gap-[307px] mt-6  mb-8 ">
               <h1>Total:</h1>
                 <h1>${totalPrice}</h1>
                </Flex>
@@ -84,7 +84,7 @@ const CheckOut = () => {
                   <input className='rounded font-poppins font-normal text-base text-center  lg:leading-6 min-w-full   lg:mb-6 lg:py-4 py-4 lg:pl-6  lg:pr-16 border border-slate-800 mb-10' type="text" placeholder='Coupon Code' />
                 </div>
                 <div className='rounded'>
-                  <button className='cursor-pointer font-poppins font-normal text-base sm:w-full  leading-6  mb-6 py-4 px-12 border border-slate-800 hover:bg-thard rounded min-w-full'>Apply Coupon</button>
+                  <button className='cursor-pointer font-poppins font-normal text-base sm:w-full  leading-6  mb-6 py-4 lg:px-12 px-3 border border-slate-800 hover:bg-thard rounded min-w-full'>Apply Coupon</button>
                 </div>
             </Flex>
             <div className='rounded'>
